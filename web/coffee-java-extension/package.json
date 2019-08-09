@@ -3,7 +3,7 @@
   "keywords": [
     "theia-extension"
   ],
-  "version": "0.0.0",
+  "version": "0.0.1",
   "files": [
     "lib",
     "src"
@@ -11,15 +11,15 @@
   "dependencies": {
     "@theia/core": "0.7.1",
     "@theia/languages": "0.7.1",
-    "@theia/terminal": "0.7.1",
     "@theia/process": "0.7.1",
+    "@theia/terminal": "0.7.1",
     "express": "4.17.1",
     "glob": "7.1.4"
   },
   "devDependencies": {
     "rimraf": "latest",
-    "typescript": "latest",
-    "tslint": "^5.5.0"
+    "tslint": "^5.5.0",
+    "typescript": "latest"
   },
   "scripts": {
     "prepare": "yarn run clean && yarn run build",

@@ -3,7 +3,7 @@
   "keywords": [
     "theia-extension"
   ],
-  "version": "0.0.0",
+  "version": "0.0.1",
   "files": [
     "lib",
     "src"
@@ -16,8 +16,8 @@
   },
   "devDependencies": {
     "rimraf": "latest",
-    "typescript": "latest",
-    "tslint": "^5.5.0"
+    "tslint": "^5.5.0",
+    "typescript": "latest"
   },
   "scripts": {
     "prepare": "yarn run clean && yarn run build",

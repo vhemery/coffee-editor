@@ -6,7 +6,7 @@
   ],
   "homepage": "https://github.com/eclipsesource/coffee-editor",
   "bugs": "https://github.com/eclipsesource/coffee-editor/issues",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "files": [
     "build",
     "lib",
@@ -20,15 +20,15 @@
     "url": "https://github.com/eclipsesource/cofee-editor.git"
   },
   "dependencies": {
+    "@modelserver/theia": "next",
     "@theia/core": "^0.7.1",
-    "@theia/workspace": "^0.7.1",
     "@theia/process": "^0.7.1",
-    "@modelserver/theia": "next"
+    "@theia/workspace": "^0.7.1"
   },
   "devDependencies": {
     "rimraf": "latest",
-    "typescript": "latest",
-    "tslint": "^5.5.0"
+    "tslint": "^5.5.0",
+    "typescript": "latest"
   },
   "scripts": {
     "prepare": "yarn run clean && yarn run build",
