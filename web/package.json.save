@@ -3,9 +3,8 @@
   "scripts": {
     "prepare": "lerna run prepare",
     "rebuild:browser": "theia rebuild:browser",
-    "watch": "lerna run --parallel watch",
-    "publish:latest": "lerna publish",
-    "publish:next": "lerna publish --exact --canary=next --npm-tag=next --yes"
+        
+"watch": "lerna run --parallel watch"
   },
   "devDependencies": {
     "lerna": "^3.13.0"
