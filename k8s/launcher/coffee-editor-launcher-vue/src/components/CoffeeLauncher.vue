@@ -37,12 +37,15 @@ export default class CoffeeLauncher extends Vue {
       .get(this.url)
       .then(response => {
         // handle success
-        console.log(response);
         const coffeeEditorURL = response.data;
         location.replace(coffeeEditorURL);
       })
       .catch(error => {
-        alert(error.response.data);
+        if (error.response !== undefined) {
+          alert(error.response.data);
+        } else {
+          alert("There was a problem while launching the editor");
+        }
       });
     this.launching = false;
     this.loadingText = " ";
