@@ -4,8 +4,7 @@
       <v-expansion-panel>
         <v-expansion-panel-header expand-icon="expand">
           <h1>
-            By launching the coffee editor, I agree to the following coffee
-            editor terms, conditions and privacy policy (click to expand)
+            Coffee editor terms, conditions and privacy policy (click to expand)
           </h1>
         </v-expansion-panel-header>
         <v-expansion-panel-content>

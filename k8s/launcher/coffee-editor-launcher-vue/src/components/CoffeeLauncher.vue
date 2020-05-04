@@ -1,15 +1,27 @@
 <template>
   <div class="coffee">
     <div>
-      <v-btn
-        rounded
-        color="#11b3bb"
-        dark
-        :loading="launching"
-        :disabled="launching"
-        @click="launch"
-        >{{ buttonText }}</v-btn
-      >
+      <div class="disc">
+        <p>
+          The coffee editor demo is for demonstration purposes only and will
+          <b>time out after 30 minutes</b>.
+        </p>
+        <p>
+          By launching the coffee editor, I agree to the terms, conditions and
+          privacy policy below (click to expand).
+        </p>
+      </div>
+      <div class="launch">
+        <v-btn
+          rounded
+          color="#11b3bb"
+          dark
+          :loading="launching"
+          :disabled="launching"
+          @click="launch"
+          >{{ buttonText }}</v-btn
+        >
+      </div>
     </div>
     <div class="loading">
       <p>{{ loadingText }}</p>
@@ -32,7 +44,7 @@ export default class CoffeeLauncher extends Vue {
   private async launch() {
     this.launching = true;
     this.loadingText =
-      "Your Coffee Editor demo instance is being launched. You will be redirected once finished.";
+      "Your Coffee Editor demo instance is being launched. This can take up to a minute You will be redirected once finished.";
     await axios
       .get(this.url)
       .then(response => {
@@ -60,5 +72,8 @@ export default class CoffeeLauncher extends Vue {
 .loading {
   height: 20px;
   margin: 40px 0 0;
+}
+.launch button {
+  margin-top: 40px;
 }
 </style>
