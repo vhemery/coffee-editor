@@ -32,4 +32,4 @@ RUN /coffee-editor/run.sh -f && \
 	wget http://35.246.187.143/favicon.ico -P /coffee-editor/web/browser-app/lib && \
 	sed -i 's/<\/head>/<link rel="icon" href="favicon.ico" \/><\/head>/g' /coffee-editor/web/browser-app/lib/index.html
 
-CMD cd /coffee-editor/web/browser-app && yarn start --hostname 0.0.0.0
+CMD cd /coffee-editor/web/browser-app && sleep 5 && yarn start --hostname 0.0.0.0

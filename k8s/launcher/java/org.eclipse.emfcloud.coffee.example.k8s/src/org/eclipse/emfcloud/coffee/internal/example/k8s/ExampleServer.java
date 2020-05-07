@@ -272,6 +272,14 @@ public class ExampleServer {
 			try {
 				final URLConnection connection = new URL(url).openConnection();
 				connection.connect();
+
+				try {
+					// give backend some more time
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					// silent
+				}
+
 				return;
 			} catch (final MalformedURLException e) {
 			} catch (final IOException e) {
