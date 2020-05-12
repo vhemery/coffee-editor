@@ -275,7 +275,7 @@ public class ExampleServer {
 
 				try {
 					// give backend some more time
-					Thread.sleep(5000);
+					Thread.sleep(10000);
 				} catch (InterruptedException e) {
 					// silent
 				}
@@ -575,8 +575,10 @@ public class ExampleServer {
 				/*            */.withName("coffee-editor-demo")//
 				/*            */.withImage("eu.gcr.io/kubernetes-238012/coffee-editor:" + COFFEE_EDITOR_IMAGE_VERSION)//
 				/*            */.withNewResources()//
-				/*                */.addToRequests("memory", Quantity.fromString("1.5G"))//
-				/*                */.addToLimits("memory", Quantity.fromString("2G")).endResources()//
+				/*                */.addToRequests("memory", Quantity.fromString("1.6G"))//
+				/*                */.addToLimits("memory", Quantity.fromString("1.6G"))
+				/*                */.addToRequests("cpu", Quantity.fromString("0.25"))
+				/*                *//* .addToLimits("cpu", Quantity.fromString("0.6")) */.endResources()//
 				/*            */.addNewPort()//
 				/*                */.withContainerPort(3000).endPort().endContainer().endSpec().endTemplate().endSpec()
 				/*                */.build();
