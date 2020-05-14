@@ -45,6 +45,12 @@ export default class CoffeeLauncher extends Vue {
     this.launching = true;
     this.loadingText =
       "Your Coffee Editor demo instance is being launched. This can take up to a minute. You will be redirected once finished.";
+    setTimeout(() => {
+      if (this.launching) {
+        this.loadingText =
+          "Launching is taking longer than usual because there are many users at the moment. You will be redirected once finished.";
+      }
+    }, 45000);
     await axios
       .get(this.url)
       .then(response => {

@@ -141,7 +141,7 @@ public class ExampleServer {
 
 	private Map<String, AvailableService> servicesInUse = new ConcurrentHashMap<>();
 
-	private ExecutorService requestSpawner = Executors.newCachedThreadPool();
+	private ExecutorService requestSpawner = Executors.newFixedThreadPool(1);
 	private ExecutorService serviceSpawner = Executors.newFixedThreadPool(10);
 
 	private static class AvailableService {
@@ -275,7 +275,7 @@ public class ExampleServer {
 
 				try {
 					// give backend some more time
-					Thread.sleep(10000);
+					Thread.sleep(15000);
 				} catch (InterruptedException e) {
 					// silent
 				}
