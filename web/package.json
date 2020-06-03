@@ -18,7 +18,8 @@
     "coffee-workflow-generator",
     "coffee-workflow-glsp-editor",
     "coffee-welcome-page",
-    "browser-app"
+    "browser-app",
+    "electron-app"
   ],
   "resolutions": {
     "**/@theia/callhierarchy": "1.2.0",
