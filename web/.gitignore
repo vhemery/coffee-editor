@@ -6,6 +6,9 @@ docs
 *.log
 *-app/*
 !*-app/package.json
+!*-app/*.yml
+!*-app/scripts/*
+!*-app/resources/*
 
 .idea/
 
