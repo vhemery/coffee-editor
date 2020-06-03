@@ -19,10 +19,6 @@ extraResources:
 win:
   target:
     - nsis
-mac:
-  target:
-    - dmg
-  darkModeSupport: false
 linux:
   target:
     - deb
