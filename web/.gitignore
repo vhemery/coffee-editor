@@ -7,8 +7,8 @@ docs
 *-app/*
 !*-app/package.json
 !*-app/*.yml
-!*-app/scripts/*
-!*-app/resources/*
+!*-app/scripts/
+!*-app/resources/
 
 .idea/
 
