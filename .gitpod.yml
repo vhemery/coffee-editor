@@ -3,5 +3,5 @@ image:
 
 tasks:
   - before: npm install -g yarn
-    init: yarn add electron-builder --deb
-    command: yarn
+    init: ./run.sh
+    command: cd web/electron-app && yarn package --win
