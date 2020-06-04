@@ -5,13 +5,15 @@ buildBackend='false'
 copyBackend='false'
 buildFrontend='false'
 forceFrontend='false'
-runFrontend='false'
+runWebFrontend='false'
+runElectronFrontend='false'
 
 if [[ "$1" == "" ]]; then
   buildBackend='true'
   copyBackend='true'
   buildFrontend='true'
-  runFrontend='true'
+  runWebFrontend='true'
+  runElectronFrontend='true'
 fi
 
 if [[ ${#1} -gt 2 ]]; then
@@ -25,8 +27,11 @@ if [[ ${#1} -gt 2 ]]; then
   if [[ "$1" == -*"f"* ]]; then
     buildFrontend='true'
   fi
-  if [[ "$1" == -*"r"* ]]; then
-    runFrontend='true'
+  if [[ "$1" == -*"rw"* ]]; then
+    runWebFrontend='true'
+  fi
+  if [[ "$1" == -*"re"* ]]; then
+    runElectronFrontend='true'
   fi
   if [[ "$1" == -*"ff"* ]]; then
     forceFrontend='true'
@@ -43,7 +48,9 @@ while [ "$1" != "" ]; do
                       ;;
     -ff | --forcefrontend ) forceFrontend='true'
                       ;;
-    -r | --run )      runFrontend='true'
+    -rw | --runWeb )      runWebFrontend='true'
+                      ;;
+    -re | --runElectron ) runElectronFrontend='true'
                       ;;
   esac
   shift
@@ -52,8 +59,10 @@ done
 [[ "$buildBackend" == "true" ]] && echo "  Build Backend (-b)" || echo "  Do not build Backend (-b)"
 [[ "$copyBackend" == "true" ]] && echo "  Copy Backend (-c)" || echo "  Do not copy Backend (-c)"
 [[ "$forceFrontend" == "true" ]] && echo "  Remove yarn.lock (-ff)" || echo "  Do not remove yarn.lock  (-ff)"
-[[ "$buildFrontend" == "true" ]] && echo "  Build Frontend (-f)" || echo "  Do not build Frontend (-f)"
-[[ "$runFrontend" == "true" ]] && echo "  Run Frontend (-r)" || echo "  Do not run Frontend (-r)"
+[[ "$buildFrontend" == "true" ]] && echo "  Build Frontend (-f)" || echo "  Do not build Frontend (-fw)"
+[[ "$buildElectronFrontend" == "true" ]] && echo "  Build Electron Frontend (-fe)" || echo "  Do not build Electron Frontend (-fe)"
+[[ "$runWebFrontend" == "true" ]] && echo "  Run Web Frontend (-rw)" || echo "  Do not run Web Frontend (-rw)"
+[[ "$runElectronFrontend" == "true" ]] && echo "  Run Electron Frontend (-rw)" || echo "  Do not run Electron Frontend (-rw)"
 
 if [ "$buildBackend" == "true" ]; then
   echo "$(date +"[%T.%3N]") Build backend products"
@@ -130,10 +139,17 @@ if [ "$buildFrontend" == "true" ]; then
   cd ..
 fi
 
-if [ "$runFrontend" == "true" ]; then
+if [ "$runWebFrontend" == "true" ]; then
   workspace=$(pwd)
 #  (sleep 5 && firefox 127.1:3000/#/${workspace:1}/backend/examples/SuperBrewer3000)&
   cd web/browser-app
   yarn start --hostname 0.0.0.0
+fi
+
+if [ "$runElectronFrontend" == "true" ]; then
+  workspace=$(pwd)
+#  (sleep 5 && firefox 127.1:3000/#/${workspace:1}/backend/examples/SuperBrewer3000)&
+  cd web/electron-app
+  yarn start
 fi
 
