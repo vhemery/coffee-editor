@@ -3,7 +3,12 @@
   "scripts": {
     "prepare": "lerna run prepare",
     "rebuild:browser": "theia rebuild:browser",
+    "rebuild:electron": "theia rebuild:electron",
     "watch": "lerna run --parallel watch"
+  },
+  "engines": {
+    "yarn": "1.0.x || >=1.2.1",
+    "node": ">=10.11.0 <12"
   },
   "devDependencies": {
     "lerna": "^3.13.0"
@@ -27,6 +32,7 @@
     "**/@theia/core": "1.2.0",
     "**/@theia/debug": "1.2.0",
     "**/@theia/editor": "1.2.0",
+    "**/@theia/electron": "1.2.0",
     "**/@theia/file-search": "1.2.0",
     "**/@theia/filesystem": "1.2.0",
     "**/@theia/json": "1.2.0",
@@ -56,6 +62,8 @@
     "**/@eclipse-glsp/client": "0.8.0-rc-02",
     "**/@eclipse-glsp/theia-integration": "0.8.0-rc-02",
     "**/@eclipse-glsp-examples/workflow-sprotty": "0.8.0-rc-02",
-    "**/typescript": "^3.9.3"
+    "**/typescript": "^3.9.3",
+    "**/@types/node": "~10.3.6",
+    "**/vscode-json-languageserver/**/vscode-languageserver": "6.0.0-next.1"
   }
 }

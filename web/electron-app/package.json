@@ -39,12 +39,15 @@
     "coffee-welcome-page": "0.7.0",
     "coffee-workflow-analyzer": "0.7.0",
     "coffee-workflow-analyzer-editors": "0.7.0",
-    "coffee-workflow-glsp-editor": "0.7.0"
+    "coffee-workflow-glsp-editor": "0.7.0",
+    "fix-path": "^2.1.0",
+    "uuid": "^3.3.2",
+    "yargs": "^11.1.0"
   },
   "devDependencies": {
     "@theia/cli": "latest",
     "bufferutil": "4",
-    "electron": "^9.0.2",
+    "electron": "^4.2.11",
     "electron-builder": "^19.30.2",
     "utf-8-validate": "5"
   },
