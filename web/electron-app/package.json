@@ -63,6 +63,7 @@
   },
   "scripts": {
     "build": "theia build",
+    "rebuild:electron": "theia rebuild:electron",
     "package": "yarn run build && electron-builder",
     "package:all": "yarn run build && electron-builder -lmw"
   },
