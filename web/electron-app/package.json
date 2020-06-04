@@ -39,16 +39,13 @@
     "coffee-welcome-page": "0.7.0",
     "coffee-workflow-analyzer": "0.7.0",
     "coffee-workflow-analyzer-editors": "0.7.0",
-    "coffee-workflow-glsp-editor": "0.7.0",
-    "fix-path": "^2.1.0",
-    "uuid": "^3.3.2",
-    "yargs": "^11.1.0"
+    "coffee-workflow-glsp-editor": "0.7.0"
   },
   "devDependencies": {
     "@theia/cli": "latest",
     "bufferutil": "4",
-    "electron": "^4.2.11",
-    "electron-builder": "^19.30.2",
+    "electron": "4.2.11",
+    "electron-builder": "22.4.1",
     "utf-8-validate": "5"
   },
   "author": {
@@ -68,17 +65,7 @@
     "package:all": "yarn run build && electron-builder -lmw"
   },
   "theia": {
-    "target": "electron",
-    "backend": {
-      "config": {
-        "startupTimeout": -1
-      },
-      "frontend": {
-        "config": {
-          "applicationName": "DISCO"
-        }
-      }
-    }
+    "target": "electron"
   },
   "theiaPluginsDir": "plugins",
   "theiaPlugins": {

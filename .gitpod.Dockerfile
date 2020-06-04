@@ -8,6 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # added here because fails afterward... 
 RUN apt-get install -y g++ gcc make python2.7 pkg-config libx11-dev libxkbfile-dev
 RUN apt-get install -y lsof libnss3-dev
+RUN apt-get install libgtk-3-0
 # RUN curl -L https://yarnpkg.com/latest.tar.gz | tar xvz && mv yarn-* /yarn && ln -s /yarn/bin/yarn /usr/bin/yarn
 RUN apt-get -qq update && apt-get -qq dist-upgrade && \
     # add repo for git-lfs

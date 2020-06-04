@@ -62,8 +62,6 @@
     "**/@eclipse-glsp/client": "0.8.0-rc-02",
     "**/@eclipse-glsp/theia-integration": "0.8.0-rc-02",
     "**/@eclipse-glsp-examples/workflow-sprotty": "0.8.0-rc-02",
-    "**/typescript": "^3.9.3",
-    "**/@types/node": "~10.3.6",
-    "**/vscode-json-languageserver/**/vscode-languageserver": "6.0.0-next.1"
+    "**/typescript": "^3.9.3"
   }
 }
