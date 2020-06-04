@@ -4,4 +4,4 @@ image:
 tasks:
   - before: npm install -g yarn
     init: ./run.sh
-    command: cd web/electron-app && yarn package --win
+    command: cd web/electron-app && yarn rebuild:electron
