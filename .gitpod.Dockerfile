@@ -49,14 +49,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends software-proper
     apt-get -y purge software-properties-common libdbus-glib-1-2 python3-dbus python3-gi python3-pycurl python3-software-properties && \
     apt-get install -y --no-install-recommends winehq-stable && \
     # clean
-    apt-get clean && rm -rf /var/lib/apt/lists/* && unlink winehq.key && \
-    #mono
-    apt-get install -y mono-complete
+    apt-get clean && rm -rf /var/lib/apt/lists/* && unlink winehq.key
 
 RUN curl -L https://github.com/electron-userland/electron-builder-binaries/releases/download/wine-2.0.3-mac-10.13/wine-home.zip > /tmp/wine-home.zip && unzip /tmp/wine-home.zip -d /root/.wine && unlink /tmp/wine-home.zip
 
 ENV WINEDEBUG -all,err+all
 ENV WINEDLLOVERRIDES winemenubuilder.exe=d
+
 
 # Proper custom content
 
@@ -71,6 +70,7 @@ ENV WINEDLLOVERRIDES winemenubuilder.exe=d
 #    && sudo apt-get update -y \
 #    && sudo apt-get dist-upgrade -y -o APT::Immediate-Configure=0 \
 #    && sudo apt-get install -y cabextract libxext6 libxext6:i386 libfreetype6 libfreetype6:i386 libc6 libc6-i686 wine32
+RUN apt-get install -y mono-complete
 
 USER gitpod
 
