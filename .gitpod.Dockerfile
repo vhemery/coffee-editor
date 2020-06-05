@@ -70,7 +70,7 @@ ENV WINEDLLOVERRIDES winemenubuilder.exe=d
 #    && sudo apt-get update -y \
 #    && sudo apt-get dist-upgrade -y -o APT::Immediate-Configure=0 \
 #    && sudo apt-get install -y cabextract libxext6 libxext6:i386 libfreetype6 libfreetype6:i386 libc6 libc6-i686 wine32
-RUN apt-get install apt-transport-https dirmngr gnupg ca-certificates && \
+RUN apt-get install -y apt-transport-https dirmngr gnupg ca-certificates && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF &&\
     echo "deb https://download.mono-project.com/repo/debian stable-buster main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list &&\
     apt update && apt-get install -y mono-complete
