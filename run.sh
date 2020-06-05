@@ -60,7 +60,6 @@ done
 [[ "$copyBackend" == "true" ]] && echo "  Copy Backend (-c)" || echo "  Do not copy Backend (-c)"
 [[ "$forceFrontend" == "true" ]] && echo "  Remove yarn.lock (-ff)" || echo "  Do not remove yarn.lock  (-ff)"
 [[ "$buildFrontend" == "true" ]] && echo "  Build Frontend (-f)" || echo "  Do not build Frontend (-fw)"
-[[ "$buildElectronFrontend" == "true" ]] && echo "  Build Electron Frontend (-fe)" || echo "  Do not build Electron Frontend (-fe)"
 [[ "$runWebFrontend" == "true" ]] && echo "  Run Web Frontend (-rw)" || echo "  Do not run Web Frontend (-rw)"
 [[ "$runElectronFrontend" == "true" ]] && echo "  Run Electron Frontend (-rw)" || echo "  Do not run Electron Frontend (-rw)"
 

@@ -1,9 +1,9 @@
 #electronDist: node_modules/electron/dist
 productName: DISCO
-appId: DISCO
+appId: electron-app
 npmRebuild: false
 
-asar: false
+asar: true
 directories:
   buildResources: resources
 files:
@@ -12,9 +12,9 @@ files:
   - lib
   - scripts
   - package.json
-extraResources:
-  - from: plugins
-    to: app/plugins
+#extraResources:
+#  - from: plugins
+#    to: app/plugins
 
 win:
   target:

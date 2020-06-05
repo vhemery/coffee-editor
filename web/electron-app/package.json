@@ -1,7 +1,23 @@
 {
   "private": true,
-  "name": "DISCO",
+  "name": "electron-app",
+  "description": "Electron app for DISCO",
   "version": "0.7.0",
+  "author": {
+    "name": "Vincent HEMERY",
+    "email": "vincent.hemery@csgroup.eu",
+    "url": "https://accounts.eclipse.org/users/vhemery"
+  },
+  "repository": "https://github.com/vhemery/coffee-editor",
+  "main": "src-gen/frontend/electron-main.js",
+  "theia": {
+    "target": "electron",
+    "frontend": {
+      "config": {
+        "applicationName": "DISCO"
+      }
+    }
+  },
   "dependencies": {
     "@theia/callhierarchy": "latest",
     "@theia/console": "latest",
@@ -43,18 +59,12 @@
   },
   "devDependencies": {
     "@theia/cli": "latest",
+    "@theia/electron": "^1.2.0",
     "bufferutil": "4",
     "electron": "4.2.11",
-    "electron-builder": "22.4.1",
+    "electron-builder": "21.2.0",
     "utf-8-validate": "5"
   },
-  "author": {
-    "name": "Vincent HEMERY",
-    "email": "vincent.hemery@csgroup.eu",
-    "url": "https://accounts.eclipse.org/users/vhemery"
-  },
-  "repository": "https://github.com/vhemery/coffee-editor",
-  "main": "scripts/DISCO-main.js",
   "engines": {
     "node": ">=10.2.0"
   },
@@ -64,11 +74,8 @@
     "watch": "theia build --watch --mode development",
     "download:plugins": "theia download:plugins",
     "rebuild:electron": "theia rebuild:electron",
-    "package": "yarn run prepare && electron-builder --win",
+    "package": "yarn run prepare && electron-builder --win --x64",
     "package:all": "yarn run prepare && electron-builder -lmw"
-  },
-  "theia": {
-    "target": "electron"
   },
   "theiaPluginsDir": "plugins",
   "theiaPlugins": {
