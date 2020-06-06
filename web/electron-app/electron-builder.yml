@@ -1,7 +1,7 @@
 #electronDist: node_modules/electron/dist
 productName: DISCO
 appId: electron-app
-npmRebuild: false
+npmRebuild: true
 
 asar: true
 directories:
@@ -21,8 +21,8 @@ win:
     - nsis
 linux:
   target:
-    - deb
-    - AppImage
+    - rpm
+    - tar.gz
   category: Development
   icon: resources/icons
 

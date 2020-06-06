@@ -74,8 +74,10 @@
     "watch": "theia build --watch --mode development",
     "download:plugins": "theia download:plugins",
     "rebuild:electron": "theia rebuild:electron",
-    "package": "yarn run prepare && electron-builder --win --x64",
-    "package:all": "yarn run prepare && electron-builder -lmw"
+    "package:lin": "yarn run prepare && electron-builder --l --x64",
+    "package:win": "yarn run prepare && electron-builder --win --x64",
+    "package:all": "yarn run prepare && electron-builder -lmw",
+    "postinstall": "electron-builder install-app-deps"
   },
   "theiaPluginsDir": "plugins",
   "theiaPlugins": {
