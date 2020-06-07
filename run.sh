@@ -40,18 +40,24 @@ fi
 
 while [ "$1" != "" ]; do
   case $1 in
-    -b | --backend )  buildBackend='true'
-                      ;;
-    -c | --copy )     copyBackend='true'      
-                      ;;
-    -f | --frontend ) buildFrontend='true'
-                      ;;
-    -ff | --forcefrontend ) forceFrontend='true'
-                      ;;
-    -rw | --runWeb )      runWebFrontend='true'
-                      ;;
-    -re | --runElectron ) runElectronFrontend='true'
-                      ;;
+  -b | --backend)
+    buildBackend='true'
+    ;;
+  -c | --copy)
+    copyBackend='true'
+    ;;
+  -f | --frontend)
+    buildFrontend='true'
+    ;;
+  -ff | --forcefrontend)
+    forceFrontend='true'
+    ;;
+  -rw | --runWeb)
+    runWebFrontend='true'
+    ;;
+  -re | --runElectron)
+    runElectronFrontend='true'
+    ;;
   esac
   shift
 done
@@ -59,9 +65,9 @@ done
 [[ "$buildBackend" == "true" ]] && echo "  Build Backend (-b)" || echo "  Do not build Backend (-b)"
 [[ "$copyBackend" == "true" ]] && echo "  Copy Backend (-c)" || echo "  Do not copy Backend (-c)"
 [[ "$forceFrontend" == "true" ]] && echo "  Remove yarn.lock (-ff)" || echo "  Do not remove yarn.lock  (-ff)"
-[[ "$buildFrontend" == "true" ]] && echo "  Build Frontend (-f)" || echo "  Do not build Frontend (-fw)"
+[[ "$buildFrontend" == "true" ]] && echo "  Build Frontend (-f)" || echo "  Do not build Frontend (-f)"
 [[ "$runWebFrontend" == "true" ]] && echo "  Run Web Frontend (-rw)" || echo "  Do not run Web Frontend (-rw)"
-[[ "$runElectronFrontend" == "true" ]] && echo "  Run Electron Frontend (-rw)" || echo "  Do not run Electron Frontend (-rw)"
+[[ "$runElectronFrontend" == "true" ]] && echo "  Run Electron Frontend (-re)" || echo "  Do not run Electron Frontend (-re)"
 
 if [ "$buildBackend" == "true" ]; then
   echo "$(date +"[%T.%3N]") Build backend products"
@@ -73,20 +79,20 @@ fi
 if [ "$copyBackend" == "true" ]; then
   productPath=''
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	productPath='linux/gtk'
-	echo "Running on Linux"
+    productPath='linux/gtk'
+    echo "Running on Linux"
   elif [[ "$OSTYPE" == "darwin"* ]]; then
-        # Mac OSX
-	productPath='macosx\cocoa'
-	echo "Running on Mac"
+    # Mac OSX
+    productPath='macosx\cocoa'
+    echo "Running on Mac"
   elif [[ "$OSTYPE" == "cygwin" ]]; then
-        # POSIX compatibility layer and Linux environment emulation for Windows
-	productPath='win32\win32'
-	echo "Running on Windows with Cygwin"
+    # POSIX compatibility layer and Linux environment emulation for Windows
+    productPath='win32\win32'
+    echo "Running on Windows with Cygwin"
   elif [[ "$OSTYPE" == "msys" ]]; then
-        # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
-	productPath='win32\win32'
-	echo "Running on Windows with Msys"
+    # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
+    productPath='win32\win32'
+    echo "Running on Windows with Msys"
   fi
   echo "$productPath"
   echo "$(date +"[%T.%3N]") Copy built products..."
@@ -116,7 +122,6 @@ if [ "$copyBackend" == "true" ]; then
   echo "  $(date +"[%T.%3N]") Copy CoffeeModelServer to '$outputCoffeeMS'."
   cp -rf $inputCoffeeMS $outputCoffeeMS
 
-
   echo "$(date +"[%T.%3N]") Copy finished."
 fi
 
@@ -140,15 +145,16 @@ fi
 
 if [ "$runWebFrontend" == "true" ]; then
   workspace=$(pwd)
-#  (sleep 5 && firefox 127.1:3000/#/${workspace:1}/backend/examples/SuperBrewer3000)&
+  #  (sleep 5 && firefox 127.1:3000/#/${workspace:1}/backend/examples/SuperBrewer3000)&
   cd web/browser-app
   yarn start --hostname 0.0.0.0
+  cd ../..
 fi
 
 if [ "$runElectronFrontend" == "true" ]; then
   workspace=$(pwd)
-#  (sleep 5 && firefox 127.1:3000/#/${workspace:1}/backend/examples/SuperBrewer3000)&
+  #  (sleep 5 && firefox 127.1:3000/#/${workspace:1}/backend/examples/SuperBrewer3000)&
   cd web/electron-app
   yarn start
+  cd ../..
 fi
-
