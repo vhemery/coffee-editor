@@ -4,6 +4,8 @@
     "prepare": "lerna run prepare",
     "rebuild:browser": "theia rebuild:browser",
     "rebuild:electron": "theia rebuild:electron",
+    "start:browser": "yarn rebuild:browser && yarn --cwd browser-app start",
+    "start:electron": "yarn rebuild:electron && yarn --cwd electron start",
     "watch": "lerna run --parallel watch"
   },
   "engines": {
@@ -11,6 +13,8 @@
     "node": ">=10.11.0 <12"
   },
   "devDependencies": {
+    "@theia/cli": "^1.2.0",
+    "electron": "^4.2.11",
     "lerna": "^3.13.0"
   },
   "workspaces": [
@@ -24,7 +28,7 @@
     "coffee-workflow-glsp-editor",
     "coffee-welcome-page",
     "browser-app",
-    "electron-app"
+    "electron"
   ],
   "resolutions": {
     "**/@theia/callhierarchy": "1.2.0",

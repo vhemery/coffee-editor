@@ -17,10 +17,15 @@ import { CommandRegistry, MenuModelRegistry } from '@theia/core';
 import { ApplicationShell, NavigatableWidgetOptions, OpenerService, WidgetOpenerOptions } from '@theia/core/lib/browser';
 import URI from '@theia/core/lib/common/uri';
 import { inject, injectable } from 'inversify';
-import { BaseTreeEditorContribution, BaseTreeEditorWidget, TreeContextMenu, TreeEditor } from 'theia-tree-editor';
+import {
+  BaseTreeEditorContribution, BaseTreeEditorWidget, // TreeContextMenu,
+  TreeEditor
+} from 'theia-tree-editor';
 
 import { CoffeeModelService } from './coffee-tree/coffee-model-service';
-import { CoffeeTreeCommands, OpenWorkflowDiagramCommandHandler } from './coffee-tree/coffee-tree-container';
+// import {
+//  CoffeeTreeCommands , OpenWorkflowDiagramCommandHandler
+// } from './coffee-tree/coffee-tree-container';
 import { CoffeeTreeEditorWidget } from './coffee-tree/coffee-tree-editor-widget';
 import { CoffeeTreeLabelProvider } from './coffee-tree/coffee-tree-label-provider-contribution';
 
@@ -49,18 +54,18 @@ export class CoffeeTreeEditorContribution extends BaseTreeEditorContribution {
   }
 
   registerCommands(commands: CommandRegistry): void {
-    commands.registerCommand(
-      CoffeeTreeCommands.OPEN_WORKFLOW_DIAGRAM,
-      new OpenWorkflowDiagramCommandHandler(this.shell, this.opener));
+    // commands.registerCommand(
+    //  CoffeeTreeCommands.OPEN_WORKFLOW_DIAGRAM,
+    //  new OpenWorkflowDiagramCommandHandler(this.shell, this.opener));
 
     super.registerCommands(commands);
   }
 
   registerMenus(menus: MenuModelRegistry): void {
-    menus.registerMenuAction(TreeContextMenu.CONTEXT_MENU, {
-      commandId: CoffeeTreeCommands.OPEN_WORKFLOW_DIAGRAM.id,
-      label: CoffeeTreeCommands.OPEN_WORKFLOW_DIAGRAM.label
-    });
+    // menus.registerMenuAction(TreeContextMenu.CONTEXT_MENU, {
+    //  commandId: CoffeeTreeCommands.OPEN_WORKFLOW_DIAGRAM.id,
+    //  label: CoffeeTreeCommands.OPEN_WORKFLOW_DIAGRAM.label
+    // });
 
     super.registerMenus(menus);
   }

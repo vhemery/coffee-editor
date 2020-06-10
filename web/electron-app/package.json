@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "electron-app",
+  "productName": "DISCO",
   "description": "Electron app for DISCO",
   "version": "0.7.0",
   "author": {
@@ -9,12 +10,18 @@
     "url": "https://accounts.eclipse.org/users/vhemery"
   },
   "repository": "https://github.com/vhemery/coffee-editor",
+  "//main": "local-dir:scripts/DISCO-main.js",
   "main": "src-gen/frontend/electron-main.js",
   "theia": {
     "target": "electron",
     "frontend": {
       "config": {
         "applicationName": "DISCO"
+      }
+    },
+    "backend": {
+      "config": {
+        "startupTimeout": -1
       }
     }
   },
@@ -55,13 +62,12 @@
     "coffee-welcome-page": "0.7.0",
     "coffee-workflow-analyzer": "0.7.0",
     "coffee-workflow-analyzer-editors": "0.7.0",
-    "coffee-workflow-glsp-editor": "0.7.0"
+    "coffee-workflow-glsp-editor": "0.7.0",
+    "electron": "^4.2.11"
   },
   "devDependencies": {
     "@theia/cli": "latest",
-    "@theia/electron": "^1.2.0",
     "bufferutil": "4",
-    "electron": "4.2.11",
     "electron-builder": "21.2.0",
     "utf-8-validate": "5"
   },
@@ -69,8 +75,12 @@
     "node": ">=10.2.0"
   },
   "scripts": {
+    "lint": "theiaext lint",
+    "clean": "theia clean",
+    "build": "theiaext compile && yarn bundle",
     "prepare": "theia build --mode development",
-    "start": "theia start --WORKFLOW_NOTATION_LSP=5008 --WF_LSP=5017 --port=3000 --loglevel=debug --root-dir=../../backend/examples/ --loglevel=debug  --plugins=local-dir:./plugins",
+    "start": "theia start --plugins=local-dir:./plugins --root-dir=../../backend/examples/ --no-cluster",
+    "start2": "theia start --WORKFLOW_NOTATION_LSP=5008 --WF_LSP=5017 --loglevel=debug --root-dir=../../backend/examples/ --loglevel=debug  --plugins=local-dir:./plugins --no-cluster",
     "watch": "theia build --watch --mode development",
     "download:plugins": "theia download:plugins",
     "rebuild:electron": "theia rebuild:electron",

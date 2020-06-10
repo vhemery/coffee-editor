@@ -72,15 +72,6 @@ export class WelcomePageWidget extends ReactWidget {
             </div>
             <div className='flex-grid'>
                 <div className='col'>
-                    {this.renderFeatureSection('Diagram Editor', 'fa fa-project-diagram', (
-                    <p>The example diagram editor allows specifying the behavior of a coffee machine using a flow chart like notation.
-                    The diagram editor is based on <a href='https://www.eclipse.org/glsp/' target='_blank'>the graphical language server platform
-                    (Eclipse GLSP)</a>. Double click the file "superbrewer3000.coffeenotation" in the file explorer or click
-                        the header try out the diagram editor!</p>), this.openDiagram)}
-                </div>
-            </div>
-            <div className='flex-grid'>
-                <div className='col'>
                     {this.renderFeatureSection('Form/Tree Editor', 'fab fa-wpforms', (
                         <p>This editor allows to edit elements in a form-based view along with a tree showing the
                         hierarchy of the model instances. This allows to efficiently browse the model and enter

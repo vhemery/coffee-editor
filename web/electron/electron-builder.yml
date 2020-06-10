@@ -3,7 +3,7 @@ productName: DISCO
 appId: electron-app
 npmRebuild: true
 
-asar: true
+asar: false
 directories:
   buildResources: resources
 files:
@@ -12,7 +12,12 @@ files:
   - lib/**/*
 #  - scripts/**/*
   - package.json
-#extraResources:
+  - DISCO-main.js
+extraResources:
+  - from: ../../backend/examples/SuperBrewer3000
+    to: SuperBrewer3000
+  - from: C:/Users/ettel_000/AppData/Local/Programs/AdoptOpenJDK
+    to: app/java
 #  - from: plugins
 #    to: app/plugins
 

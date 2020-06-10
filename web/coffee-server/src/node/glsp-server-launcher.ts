@@ -20,6 +20,7 @@ import { ProcessManager } from '@theia/process/lib/node/process-manager';
 import { RawProcess, RawProcessFactory } from '@theia/process/lib/node/raw-process';
 import * as cp from 'child_process';
 import { inject, injectable, optional } from 'inversify';
+import * as path from 'path';
 
 export const GLSPLaunchOptions = Symbol.for('LaunchOptions');
 export interface GLSPLaunchOptions {
@@ -52,11 +53,12 @@ export class GLSPServerLauncher implements BackendApplicationContribution {
 
     protected startServer(): boolean {
         if (this.launchOptions.jarPath) {
+            const command = path.resolve(__dirname, '..', '..', '..', '..', 'java', 'bin', 'java.exe');
             let args = ['-jar', this.launchOptions.jarPath, '--port', `${this.launchOptions.serverPort}`];
             if (this.launchOptions.additionalArgs) {
                 args = [...args, ...this.launchOptions.additionalArgs];
             }
-            this.spawnProcessAsync('java', args);
+            this.spawnProcessAsync(command, args);
         } else {
             this.logError('Could not start GLSP server. No path to executable is specified');
         }

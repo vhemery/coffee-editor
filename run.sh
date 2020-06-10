@@ -81,19 +81,19 @@ if [ "$copyBackend" == "true" ]; then
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
     productPath='linux/gtk'
     echo "Running on Linux"
-  elif [[ "$OSTYPE" == "darwin"* ]]; then
+  else if [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     productPath='macosx\cocoa'
     echo "Running on Mac"
-  elif [[ "$OSTYPE" == "cygwin" ]]; then
+  else if [[ "$OSTYPE" == "cygwin" ]]; then
     # POSIX compatibility layer and Linux environment emulation for Windows
     productPath='win32\win32'
     echo "Running on Windows with Cygwin"
-  elif [[ "$OSTYPE" == "msys" ]]; then
+  else if [[ "$OSTYPE" == "msys" ]]; then
     # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
     productPath='win32\win32'
     echo "Running on Windows with Msys"
-  fi
+  fi; fi; fi; fi
   echo "$productPath"
   echo "$(date +"[%T.%3N]") Copy built products..."
 
@@ -154,7 +154,7 @@ fi
 if [ "$runElectronFrontend" == "true" ]; then
   workspace=$(pwd)
   #  (sleep 5 && firefox 127.1:3000/#/${workspace:1}/backend/examples/SuperBrewer3000)&
-  cd web/electron-app
-  yarn start
+  cd web/electron
+  yarn run start
   cd ../..
 fi

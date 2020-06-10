@@ -39,7 +39,7 @@ export class CoffeeCodeGenServer implements CodeGenServer, BackendApplicationCon
 
         const jarPath = path.resolve(serverPath, jarPaths[0]);
 
-        const command = 'java';
+        const command = path.resolve(__dirname, '..', '..', '..', '..', 'java', 'bin', 'java.exe');
         const args: string[] = [];
 
         args.push(

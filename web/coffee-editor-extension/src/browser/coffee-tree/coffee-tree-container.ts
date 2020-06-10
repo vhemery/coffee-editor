@@ -13,7 +13,9 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  */
-import { Command, CommandHandler } from '@theia/core';
+import { // Command,
+  CommandHandler
+} from '@theia/core';
 import { ApplicationShell, OpenerService } from '@theia/core/lib/browser';
 import URI from '@theia/core/lib/common/uri';
 import { TreeEditor } from 'theia-tree-editor';
@@ -21,13 +23,13 @@ import { TreeEditor } from 'theia-tree-editor';
 import { CoffeeModel } from './coffee-model';
 import { CoffeeTreeEditorWidget } from './coffee-tree-editor-widget';
 
-export namespace CoffeeTreeCommands {
-  export const OPEN_WORKFLOW_DIAGRAM: Command = {
-    id: 'workflow.open',
-    label: 'Open Workflow Diagram'
-  };
+// export namespace CoffeeTreeCommands {
+// export const OPEN_WORKFLOW_DIAGRAM: Command = {
+//  id: 'workflow.open',
+//  label: 'Open Workflow Diagram'
+// };
 
-}
+// }
 
 export class OpenWorkflowDiagramCommandHandler implements CommandHandler {
   constructor(protected readonly shell: ApplicationShell,

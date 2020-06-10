@@ -28,7 +28,7 @@ export class WorkflowLSPServerLauncher implements BackendApplicationContribution
     @inject(ILogger) private readonly logger: ILogger;
 
     initialize() {
-        const command = 'java';
+        const command = path.resolve(__dirname, '..', '..', '..', '..', 'java', 'bin', 'java.exe');
 
         const serverPath = path.resolve(__dirname, '..', '..', 'server');
         const jarPaths = glob.sync('**/plugins/org.eclipse.equinox.launcher_*.jar', { cwd: serverPath });

@@ -68,7 +68,7 @@ export class WorkflowAnalysisServer implements WorkflowAnalyzer, BackendApplicat
             throw new Error('The workflow analysis server launcher is not found.');
         }
         const jarPath = path.resolve(serverPath, jarPaths[0]);
-        const command = 'java';
+        const command = path.resolve(__dirname, '..', '..', '..', '..', 'java', 'bin', 'java.exe');
         const args: string[] = [];
         args.push('-jar', jarPath);
         args.push('-host', 'localhost', '-port', DEFAULT_PORT.toString());
